@@ -1,0 +1,10 @@
+html
+  head
+    title Test the "Sign in with Passport" integration
+  body
+    h1 Test the "Sign in with Passport" integration
+
+    h2 Your configuration
+    pre #{ JSON.stringify(cfg, null, 2) }
+
+    a(href=cfg.paths.authFlowStart) Get auth token
