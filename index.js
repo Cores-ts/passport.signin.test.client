@@ -46,7 +46,6 @@ app.get(cfg.paths.resourceData, function (req, res) {
         }))
         .then(function (response) {
             // handle success
-            console.log(response);
              return res.render('user', {
                  user: util.inspect(response.data),
                  cfg: cfg
@@ -70,7 +69,6 @@ app.get(cfg.paths.resourceJobProfileData, function (req, res) {
         }))
         .then(function (response) {
             // handle success
-            console.log(response);
             return res.render('user', {
                 user: util.inspect(response.data),
                 cfg: cfg
