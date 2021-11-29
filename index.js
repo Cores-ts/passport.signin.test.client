@@ -42,7 +42,7 @@ app.get(cfg.paths.resourceData, function (req, res) {
 
     axios.request(cachedToken.sign({
             method: 'get',
-            url: cfg.client.getResourcenUri
+            url: cfg.client.getResourceUri
         }))
         .then(function (response) {
             // handle success
@@ -60,6 +60,30 @@ app.get(cfg.paths.resourceData, function (req, res) {
             // always executed
         });
     
+})
+app.get(cfg.paths.resourceJobProfileData, function (req, res) {
+    console.log(cfg.paths.resourceJobProfileData, req.originalUrl)
+
+    axios.request(cachedToken.sign({
+            method: 'get',
+            url: cfg.client.getResourceJobProfileUri
+        }))
+        .then(function (response) {
+            // handle success
+            console.log(response);
+            return res.render('user', {
+                user: util.inspect(response.data),
+                cfg: cfg
+            });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+
 })
 
 app.listen(cfg.port, function () {
