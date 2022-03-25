@@ -83,6 +83,29 @@ app.get(cfg.paths.resourceJobProfileData, function (req, res) {
         });
 
 })
+app.get(cfg.paths.resourceOrganizationsData, function (req, res) {
+    console.log(cfg.paths.resourceOrganizationsData, req.originalUrl)
+
+    axios.request(cachedToken.sign({
+            method: 'get',
+            url: cfg.client.getResourceOrganizationsUri
+        }))
+        .then(function (response) {
+            // handle success
+            return res.render('user', {
+                user: util.inspect(response.data),
+                cfg: cfg
+            });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+
+})
 
 app.listen(cfg.port, function () {
     'use strict';

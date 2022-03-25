@@ -5,14 +5,15 @@ const cfg = {
     },
     get client(){
         return {
-            clientId: 'JJTNgYBZgAsDB52ixfAg4NTc7XnJSQD9',
-            clientSecret: 'ZkMMEwK5GfDBXNxHiNJNP6tTGyW2E4XbzGmGMuYjNcuMYpqZRSqF4qzuM5GtzmzN2eQ3nWio8j7L7uEGfh44sqjmYgvseY6kdX2PSiPQh69vWDaN5zyyys2zdEAtLXs3',
-            accessTokenUri: 'https://auth.onepassport.eu/token',
-            authorizationUri: 'https://auth.onepassport.eu/authorize',
-            getResourceUri: 'https://auth.onepassport.eu/whoami/emails',
-            getResourceJobProfileUri: 'https://auth.onepassport.eu/whoami/job-profile',
+            clientId: 'iv6FnGCFgMH8wryYQmeJniT8nERwM8KR',
+            clientSecret: 'DGqPDW5AtSXnQKJB8kyks6mb6SqCWSmsbBF7NFvzory2DB86eWGpg75Aw9XhqvNxzCRu36zZ5cjKWuSX3jNGBK9y2XimvDCxuBPb3kzuGWkCsecFk7zSbskNRWdZpdsH',
+            accessTokenUri: 'https://auth.getonepass.eu/token',
+            authorizationUri: 'https://auth.getonepass.eu/authorize',
+            getResourceUri: 'https://auth.getonepass.eu/whoami/emails',
+            getResourceJobProfileUri: 'https://auth.getonepass.eu/whoami/job-profile',
+            getResourceOrganizationsUri: 'https://auth.getonepass.eu/whoami/organizations',
             redirectUri: this.baseUrl + this.paths.authFlowCallback,
-            scopes: ['identity.profile', 'identity.email', 'identity.contact_info', 'identity.job_profile'],
+            scopes: ['identity.profile', 'identity.email', 'identity.contact_info', 'identity.job_profile', 'organizations.memberships'],
             state: '1234567890'
             
         }
@@ -21,7 +22,8 @@ const cfg = {
         authFlowStart: '/oauth-client/auth',
         authFlowCallback: '/oauth-client/auth/callback',
         resourceData: '/oauth-client/auth/identity',
-        resourceJobProfileData: '/oauth-client/auth/job-profile'
+        resourceJobProfileData: '/oauth-client/auth/job-profile',
+        resourceOrganizationsData: '/oauth-client/auth/organizations'
     }
 };
 
